@@ -1,0 +1,2 @@
+﻿store_id,order_id,distributer_phone,total_amount,distributer_invoice_no,total_discount,net_amount,pending_amount,total_quantity,total_items,total_vat
+107,13453,121212,1700,null,0,9000,0,3,3,0
