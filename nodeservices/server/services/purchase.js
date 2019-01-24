@@ -10,18 +10,17 @@ const csv=require('csvtojson')
 	function uploadCsv(req, res) {
 		csv()
 		.fromFile(req.file.path)
-		.then((jsonObj)=>{
-			console.log(jsonObj);
-			for (var item in jsonObj) {
-				console.log(jsonObj[item]);
-				 PurchaseOrder.create(jsonObj[item]).then( purchaseOrder=> {	
-				       res.json(purchaseOrder)
-						
-					});
-				
+		.then((jsonObj) => {
+			fs.unlinkSync(req.file.path);
+			for (item in jsonObj) {
+				PurchaseOrder.create(jsonObj[item])
+					.then(purchaseOrders => {})
 			}
+			res.status(200).json({
+				result: jsonObj,
+				message: 'Successfully file upload'
+			})
 		})
-	
 		
 	}	
 

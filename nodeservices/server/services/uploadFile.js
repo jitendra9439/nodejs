@@ -1,12 +1,10 @@
 /**
  * http://usejsdoc.org/
  */
-var fs = require('fs');
+const http = require('http');
+const fs = require('fs');
 
-var express = require('express');
-var multer = require('multer');
-
-var router = express.Router();
-var upload = multer({dest: 'purchase.csv'});
-
+const express = require('express');
+const multer = require('multer');
+const upload = multer({ dest: 'purchase.csv' });
 module.exports = upload;
